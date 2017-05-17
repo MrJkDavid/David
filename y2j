@@ -1,0 +1,115 @@
+package com.david.projects;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.*;
+
+public class y2j extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+
+	public y2j() {
+//calls method
+		createContents();
+		
+//closes application
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+//centres application 
+		setLocationRelativeTo(null);
+		
+//sets size dimensions
+		setSize(400,200);
+		
+//stops application from resizing 
+		setResizable(false);
+		
+//title for application
+		setTitle("Joe's Rental");
+	}
+	
+	public static void main(String[] args) {
+// TODO Auto-generated method stub
+		
+		SwingUtilities.invokeLater(() -> {
+            new y2j().setVisible(true);
+        });
+		
+	}
+	
+    public void createContents() 
+    {
+    	
+//added panels 
+	JPanel panel = new JPanel();
+	JPanel layout = new JPanel(new GridBagLayout());
+	getContentPane().add(panel);
+	panel.add(layout);
+	
+//new grid variable
+	GridBagConstraints grid = new GridBagConstraints();
+	grid.anchor = GridBagConstraints.LINE_END;
+	grid.gridy = 0;
+	grid.gridx = 0;
+	
+//first name label
+	JLabel firstname = new JLabel("First Name  ");
+	layout.add(firstname,grid);
+	grid.gridy++;
+	
+//second name label
+	JLabel lastname = new JLabel("Last Name  ");
+	layout.add(lastname,grid);
+	grid.gridy++;
+	
+//email label	
+	JLabel email = new JLabel("Email  ");
+	layout.add(email,grid);
+	grid.gridy++;
+	
+//car type label
+	JLabel cartype = new JLabel("Car Type  ");
+	layout.add(cartype,grid);
+	grid.gridy++;
+	
+//rental period label
+	JLabel rentald = new JLabel("Rental period  ");
+	layout.add(rentald,grid);
+	grid.gridy++;
+	
+//new grid variable
+	grid.anchor = GridBagConstraints.LINE_START;
+	grid.gridy = 0;
+	grid.gridx = 1;
+	
+//new text field for first name
+	JTextField first = new JTextField(20);
+	layout.add(first,grid);
+	grid.gridy++;
+	
+//new text field for second name
+	JTextField second = new JTextField(20);
+	layout.add(second,grid);
+	grid.gridy++;
+	
+//new text field for email	
+	JTextField emailfield = new JTextField(20);
+	layout.add(emailfield,grid);
+	grid.gridy++;
+	
+//dropdown list for car types	
+	String[] as = {"Delorean", "Mercerdes", "Ford", "BMW"};
+	JComboBox cartyp = new JComboBox(as);
+	layout.add(cartyp,grid);
+	grid.gridy++;
+	
+//dropdown list for rental period	
+	Integer[] aas = {1,2,3,4,5,6,7};
+	JComboBox rental = new JComboBox(aas);
+	layout.add(rental,grid);
+	grid.gridy++;
+	
+	}
+
+}
